@@ -1,0 +1,131 @@
+/* ===== RESET BÁSICO ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== GENERAL ===== */
+.dashboard {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #111827;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 20px 0 10px;
+  font-size: 20px;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ===== BOTONES ===== */
+button {
+  padding: 8px 12px;
+  margin: 4px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.1s ease, opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-warning {
+  background: #f59e0b;
+  color: #111;
+}
+
+.btn-success {
+  background: #16a34a;
+  color: white;
+}
+
+/* ===== FORM CARD ===== */
+.form {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.form input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+/* ===== PRODUCTOS ===== */
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.low-stock {
+  border-left: 6px solid #dc2626;
+  background: #fff5f5;
+}
+
+/* ===== FILTRO ===== */
+.filter {
+  margin-bottom: 14px;
+}
+
+.filter select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+/* ===== TABLA ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #f3f4f6;
+}
+
+td, th {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}

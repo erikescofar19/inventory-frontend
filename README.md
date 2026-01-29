@@ -1,13 +1,13 @@
-🖥️ Inventory Frontend
+## Inventory Frontend
 
-👉 Read this documentation in Spanish:
+## Read this documentation in Spanish:
 [🇪🇸 README en Español](./README.es.md)
 
 Frontend application for an inventory management system, built with React + Vite, which consumes the Inventory API through HTTP requests authenticated with JWT.
 
 This project allows users to manage products, control stock, register stock movements (in/out), and visualize movement history through a modern and functional user interface.
 
-🚀 Technologies Used
+## Technologies Used
 
 React
 
@@ -21,7 +21,7 @@ CSS
 
 JWT (authentication)
 
-📂 Project Structure
+## Project Structure
 
 ```bash
 inventory-frontend/
@@ -47,7 +47,7 @@ inventory-frontend/
 └── README.es.md
 ```
 
-🔐 Authentication
+## Authentication
 
 The frontend uses JWT for user authentication.
 
@@ -61,8 +61,8 @@ Token is stored in localStorage
 
 Axios automatically sends the token in every protected request
 
-👤 Roles & User Experience
-🛠️ Admin
+## Roles & User Experience
+ Admin
 
 Create, update and delete products
 
@@ -72,13 +72,13 @@ View low stock alerts
 
 Access full stock movement history
 
-👁️ User
+## User
 
 View products
 
 Access stock movement history
 
-📦 Main Features
+## Main Features
 
 JWT-based authentication
 
@@ -92,13 +92,13 @@ Stock movement filtering
 
 Secure logout
 
-⚙️ Environment Variables
+## Environment Variables
 
 Create a .env file at the project root:
 
 VITE_API_URL=http://localhost:4000/api
 
-▶️ Running the Project
+## Running the Project
 
 Install dependencies:
 
@@ -121,16 +121,16 @@ http://localhost:5174
 
 This frontend is designed to work with the backend:
 
-👉 inventory-backend (Node.js + MongoDB)
+## inventory-backend (Node.js + MongoDB)
 
-🏁 Project Status
+## Project Status
 
-✅ Functional
-✅ Backend integrated
-✅ JWT authenticated
-✅ Portfolio ready
+- Functional
+- Backend integrated
+- JWT authenticated
+- Portfolio ready
 
-👨‍💻 Author
+## Author
 
 Erik Eduardo Escobar Farías
 

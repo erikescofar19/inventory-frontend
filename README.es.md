@@ -1,6 +1,6 @@
-🖥️ Inventory Frontend
+## Inventory Frontend
 
-👉 Read this documentation in English:
+## Read this documentation in English:
 [🇺🇸 English README](./README.md)
 
 Aplicación frontend para el sistema de gestión de inventarios, desarrollada con React + Vite, que consume la Inventory API mediante peticiones HTTP autenticadas con JWT.
@@ -8,7 +8,7 @@ Aplicación frontend para el sistema de gestión de inventarios, desarrollada co
 Este proyecto permite gestionar productos, controlar stock, registrar movimientos de entrada y salida, y visualizar el historial de movimientos desde una interfaz moderna, clara y funcional.
 
 
-🚀 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 React
 
@@ -22,7 +22,7 @@ CSS
 
 JWT (autenticación)
 
-📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```bash 
 inventory-frontend/
@@ -48,7 +48,7 @@ inventory-frontend/
 └── README.es.md
 ```
 
-🔐 Autenticación
+## Autenticación
 
 El frontend utiliza JWT para la autenticación de usuarios.
 
@@ -62,8 +62,8 @@ El token se guarda en localStorage
 
 Axios envía automáticamente el token en cada petición protegida
 
-👤 Roles y experiencia de usuario
-🛠️ Admin
+## Roles y experiencia de usuario
+ Admin
 
 Crear, editar y eliminar productos
 
@@ -73,13 +73,13 @@ Visualizar alertas de stock bajo
 
 Consultar el historial completo de movimientos
 
-👁️ Usuario
+## Usuario
 
 Visualizar productos
 
 Consultar historial de movimientos
 
-📦 Funcionalidades principales
+## Funcionalidades principales
 
 Login con autenticación JWT
 
@@ -93,13 +93,13 @@ Visualización y filtrado de movimientos
 
 Cierre de sesión seguro
 
-⚙️ Variables de entorno
+## Variables de entorno
 
 Crear un archivo .env en la raíz del proyecto:
 
 VITE_API_URL=http://localhost:4000/api
 
-▶️ Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto
 
 Instalar dependencias:
 
@@ -122,16 +122,16 @@ http://localhost:5174
 
 Este frontend está diseñado para funcionar con el backend:
 
-👉 inventory-backend (Node.js + MongoDB)
+## inventory-backend (Node.js + MongoDB)
 
-🏁 Estado del proyecto
+## Estado del proyecto
 
-✅ Funcional
-✅ Integrado con backend
-✅ Autenticado con JWT
-✅ Listo para portafolio
+- Funcional
+- Integrado con backend
+- Autenticado con JWT
+- Listo para portafolio
 
-👨‍💻 Autor
+## Autor
 
 Erik Eduardo Escobar Farías
 

@@ -132,6 +132,6 @@ This frontend is designed to work with the backend:
 
 ## Author
 
-Erik Eduardo Escobar Farías
+Erik Eduardo Escobar Farias
 
 Frontend project developed as professional practice using React, focused on REST API consumption, state management, authentication, and user experience.

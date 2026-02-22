@@ -38,11 +38,12 @@ const Dashboard = () => {
   // ======================
   const loadProducts = async () => {
     try {
-      const response = await getProducts();
-      setProducts(response.data); // ✅ aquí estaba el detalle
+      const data = await getProducts(); // ✅ ya devuelve el array
+      setProducts(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("❌ Error al cargar productos", error);
       if (error.response?.status === 401) logout();
+      setProducts([]); // blindaje anti-crash
     } finally {
       setLoading(false);
     }
@@ -53,11 +54,12 @@ const Dashboard = () => {
   // ======================
   const loadMovements = async (productId = null) => {
     try {
-      const response = await getStockMovements(productId);
-      setMovements(response.data); // ✅ mismo ajuste aquí
+      const data = await getStockMovements(productId); // ✅ ya devuelve el array
+      setMovements(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("❌ Error al cargar movimientos", error);
       if (error.response?.status === 401) logout();
+      setMovements([]); // blindaje anti-crash
     } finally {
       setLoadingMovements(false);
     }
@@ -207,52 +209,53 @@ const Dashboard = () => {
         <p>Cargando...</p>
       ) : (
         <ul className="product-list">
-          {products.map((product) => (
-            <li
-              key={product._id}
-              className={`product-item ${
-                product.stock <= product.minStock ? "low-stock" : ""
-              }`}
-            >
-              <strong>{product.name}</strong> — ${product.price} — Stock:{" "}
-              {product.stock} / Mín: {product.minStock}
+          {Array.isArray(products) &&
+            products.map((product) => (
+              <li
+                key={product._id}
+                className={`product-item ${
+                  product.stock <= product.minStock ? "low-stock" : ""
+                }`}
+              >
+                <strong>{product.name}</strong> — ${product.price} — Stock:{" "}
+                {product.stock} / Mín: {product.minStock}
 
-              {product.stock <= product.minStock && (
-                <strong style={{ color: "red" }}> ⚠ Stock bajo</strong>
-              )}
+                {product.stock <= product.minStock && (
+                  <strong style={{ color: "red" }}> ⚠ Stock bajo</strong>
+                )}
 
-              <div style={{ marginTop: "8px" }}>
-                <button
-                  className="btn-warning"
-                  onClick={() => startEdit(product)}
-                >
-                  Editar
-                </button>
-                <button
-                  className="btn-danger"
-                  onClick={() => handleDelete(product._id)}
-                >
-                  Eliminar
-                </button>
-                <button
-                  className="btn-success"
-                  onClick={() =>
-                    handleStockMovement(product._id, "in")
-                  }
-                >
-                  ➕ Entrada
-                </button>
-                <button
-                  className="btn-danger"
-                  onClick={() =>
-                    handleStockMovement(product._id, "out")
-                  }
-                >
-                  ➖ Salida
-                </button>
-              </div>
-            </li>
-          ))}
+                <div style={{ marginTop: "8px" }}>
+                  <button
+                    className="btn-warning"
+                    onClick={() => startEdit(product)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="btn-danger"
+                    onClick={() => handleDelete(product._id)}
+                  >
+                    Eliminar
+                  </button>
+                  <button
+                    className="btn-success"
+                    onClick={() =>
+                      handleStockMovement(product._id, "in")
+                    }
+                  >
+                    ➕ Entrada
+                  </button>
+                  <button
+                    className="btn-danger"
+                    onClick={() =>
+                      handleStockMovement(product._id, "out")
+                    }
+                  >
+                    ➖ Salida
+                  </button>
+                </div>
+              </li>
+            ))}
         </ul>
       )}
 
@@ -271,11 +274,12 @@ const Dashboard = () => {
           }}
         >
           <option value="all">Todos</option>
-          {products.map((p) => (
-            <option key={p._id} value={p._id}>
-              {p.name}
-            </option>
-          ))}
+          {Array.isArray(products) &&
+            products.map((p) => (
+              <option key={p._id} value={p._id}>
+                {p.name}
+              </option>
+            ))}
         </select>
       </div>
 
@@ -296,18 +300,19 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {movements.map((m) => (
-              <tr key={m._id}>
-                <td>{new Date(m.createdAt).toLocaleString()}</td>
-                <td>{m.product?.name}</td>
-                <td style={{ color: m.type === "in" ? "green" : "red" }}>
-                  {m.type === "in" ? "Entrada" : "Salida"}
-                </td>
-                <td>{m.quantity}</td>
-                <td>{m.user?.name || m.user?.email}</td>
-                <td>{m.note || "-"}</td>
-              </tr>
-            ))}
+            {Array.isArray(movements) &&
+              movements.map((m) => (
+                <tr key={m._id}>
+                  <td>{new Date(m.createdAt).toLocaleString()}</td>
+                  <td>{m.product?.name}</td>
+                  <td style={{ color: m.type === "in" ? "green" : "red" }}>
+                    {m.type === "in" ? "Entrada" : "Salida"}
+                  </td>
+                  <td>{m.quantity}</td>
+                  <td>{m.user?.name || m.user?.email}</td>
+                  <td>{m.note || "-"}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       )}

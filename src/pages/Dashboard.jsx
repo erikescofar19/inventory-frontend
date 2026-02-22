@@ -11,7 +11,6 @@ import {
   getStockMovements,
 } from "../api/stockMovements";
 
-// 🔥 CSS
 import "../styles/dashboard.css";
 
 const Dashboard = () => {
@@ -39,10 +38,11 @@ const Dashboard = () => {
   // ======================
   const loadProducts = async () => {
     try {
-      const data = await getProducts();
-      setProducts(data);
+      const response = await getProducts();
+      setProducts(response.data); // ✅ aquí estaba el detalle
     } catch (error) {
       console.error("❌ Error al cargar productos", error);
+      if (error.response?.status === 401) logout();
     } finally {
       setLoading(false);
     }
@@ -53,10 +53,11 @@ const Dashboard = () => {
   // ======================
   const loadMovements = async (productId = null) => {
     try {
-      const data = await getStockMovements(productId);
-      setMovements(data);
+      const response = await getStockMovements(productId);
+      setMovements(response.data); // ✅ mismo ajuste aquí
     } catch (error) {
       console.error("❌ Error al cargar movimientos", error);
+      if (error.response?.status === 401) logout();
     } finally {
       setLoadingMovements(false);
     }
@@ -101,21 +102,18 @@ const Dashboard = () => {
     if (!form.name || !form.price || !form.stock) return;
 
     try {
+      const payload = {
+        name: form.name,
+        price: Number(form.price),
+        stock: Number(form.stock),
+        minStock: Number(form.minStock),
+      };
+
       if (editingId) {
-        await updateProduct(editingId, {
-          name: form.name,
-          price: Number(form.price),
-          stock: Number(form.stock),
-          minStock: Number(form.minStock),
-        });
+        await updateProduct(editingId, payload);
         setEditingId(null);
       } else {
-        await createProduct({
-          name: form.name,
-          price: Number(form.price),
-          stock: Number(form.stock),
-          minStock: Number(form.minStock),
-        });
+        await createProduct(payload);
       }
 
       setForm({ name: "", price: "", stock: "", minStock: "" });
@@ -218,6 +216,7 @@ const Dashboard = () => {
             >
               <strong>{product.name}</strong> — ${product.price} — Stock:{" "}
               {product.stock} / Mín: {product.minStock}
+
               {product.stock <= product.minStock && (
                 <strong style={{ color: "red" }}> ⚠ Stock bajo</strong>
               )}

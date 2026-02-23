@@ -7,6 +7,17 @@ Frontend application for an inventory management system, built with React + Vite
 
 This project allows users to manage products, control stock, register stock movements (in/out), and visualize movement history through a modern and functional user interface.
 
+## Live Demo
+
+Frontend Deploy:
+https://inventory-frontend-eight-pink.vercel.app
+
+## Demo Access
+
+A demo admin account is available for testing role-based permissions.
+
+If credentials are needed, please contact the author.
+
 ## Technologies Used
 
 React
@@ -20,6 +31,8 @@ Axios
 CSS
 
 JWT (authentication)
+
+Context API
 
 ## Project Structure
 
@@ -51,8 +64,6 @@ inventory-frontend/
 
 The frontend uses JWT for user authentication.
 
-Basic flow:
-
 User logs in through the login screen
 
 Backend returns a JWT token
@@ -62,7 +73,8 @@ Token is stored in localStorage
 Axios automatically sends the token in every protected request
 
 ## Roles & User Experience
- Admin
+
+## Admin
 
 Create, update and delete products
 
@@ -94,11 +106,11 @@ Secure logout
 
 ## Environment Variables
 
-Create a .env file at the project root:
+Create a .env file:
 
-VITE_API_URL=http://localhost:4000/api
+VITE_API_URL=https://inventory-backend-production.up.railway.app/api
 
-## Running the Project
+## Run Locally
 
 Install dependencies:
 
@@ -117,17 +129,19 @@ http://localhost:5174
 
 (Port may vary depending on Vite)
 
-🔗 Related Project
+## Related Project
 
-This frontend is designed to work with the backend:
+Backend repository:
 
-## inventory-backend (Node.js + MongoDB)
+ https://github.com/erikescofar19/inventory-backend
+ 
 
 ## Project Status
 
-- Functional
+- Production deployed
 - Backend integrated
 - JWT authenticated
+- Role-based access implemented
 - Portfolio ready
 
 ## Author

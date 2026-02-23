@@ -7,6 +7,17 @@ Aplicación frontend para el sistema de gestión de inventarios, desarrollada co
 
 Este proyecto permite gestionar productos, controlar stock, registrar movimientos de entrada y salida, y visualizar el historial de movimientos desde una interfaz moderna, clara y funcional.
 
+## Demo en Producción
+
+Frontend desplegado:
+https://inventory-frontend-eight-pink.vercel.app
+
+## Acceso de Prueba
+
+Existe una cuenta demo con rol Administrador para probar la gestión completa del sistema.
+
+Si necesitas credenciales de acceso, puedes solicitarlas al autor.
+
 
 ## Tecnologías utilizadas
 
@@ -21,6 +32,8 @@ Axios
 CSS
 
 JWT (autenticación)
+
+Context API
 
 ## Estructura del proyecto
 
@@ -63,7 +76,8 @@ El token se guarda en localStorage
 Axios envía automáticamente el token en cada petición protegida
 
 ## Roles y experiencia de usuario
- Admin
+ 
+## Admin
 
 Crear, editar y eliminar productos
 
@@ -97,9 +111,9 @@ Cierre de sesión seguro
 
 Crear un archivo .env en la raíz del proyecto:
 
-VITE_API_URL=http://localhost:4000/api
+VITE_API_URL=https://inventory-backend-production.up.railway.app/api
 
-## Cómo ejecutar el proyecto
+## Ejecutar en Local
 
 Instalar dependencias:
 
@@ -118,17 +132,20 @@ http://localhost:5174
 
 (El puerto puede variar según Vite)
 
-🔗 Proyecto relacionado
+## Proyecto Relacionado
 
-Este frontend está diseñado para funcionar con el backend:
+Repositorio del backend:
 
-## inventory-backend (Node.js + MongoDB)
+https://github.com/erikescofar19/inventory-backend
+
+
 
 ## Estado del proyecto
 
-- Funcional
+- Aplicación desplegada en producción
 - Integrado con backend
 - Autenticado con JWT
+- Control de acceso por roles
 - Listo para portafolio
 
 ## Autor
